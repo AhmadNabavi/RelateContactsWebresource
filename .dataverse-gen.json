@@ -1,0 +1,17 @@
+{
+  "entities": [
+    "account",
+    "activityparty",
+    "contact",
+    "email",
+    "leadtoopportunitysalesprocess"
+  ],
+  "actions": [
+    "WinOpportunity",
+    "CloseIncident"
+  ],
+  "functions": [],
+  "output": {
+    "outputRoot": "./src/dataverse-gen"
+  }
+}

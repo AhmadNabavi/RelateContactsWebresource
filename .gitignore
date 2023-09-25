@@ -1,0 +1,11 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# ContactForm
+/HTML/ContactForm
+
+# src directory
+/src/dataverse-gen
+/src/Forms/__test__

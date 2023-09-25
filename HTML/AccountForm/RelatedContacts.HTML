@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://win-e7t21pn4k46:5555/Development/WebResources/cr12f_SampleJS.js"></script>
+    <script type="module"
+        src="http://win-e7t21pn4k46:5555/Development/WebResources/cr12f_FluentUIWebComponents"></script>
+    <style>
+        body {
+            padding: 1em;
+            font-family: sans-serif;
+        }
+
+        .span {
+            padding: 3px;
+            border-radius: 5px;
+            border-color: rgb(210, 210, 210);
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        .contacts-div {
+            width: 500px;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid rgb(210, 210, 210);
+            border-radius: 5px;
+        }
+
+        div {
+            margin: 5px;
+        }
+
+        span {
+            margin: 5px;
+        }
+
+        .base-fluent-card {
+            height: 340px;
+        }
+    </style>
+    <style>
+        #snackbar {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+            border-radius: 10px;
+        }
+
+        #snackbar.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @-webkit-keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <fluent-horizontal-scroll>
+            <fluent-card class="base-fluent-card">
+                <div>
+                    <br>
+                    <span>
+                        <img src="http://localhost:5555/Development/WebResources/cr12f_ICONAddToGroup16" /> Related
+                        Contacts
+                    </span>
+
+                    <div id="related-contacts" class="contacts-div" ondrop="cds.ClientHooks.AccountForm.drop(event)"
+                        ondragover="cds.ClientHooks.AccountForm.allowDrop(event)" style="overflow-y:scroll;">
+                    </div>
+                    <br>
+                    <fluent-button appearance="accent" onclick="cds.ClientHooks.AccountForm.relateContacts()">
+                        <img src="http://localhost:5555/Development/WebResources/cr12f_ICONClick16" /> To
+                        Relate</fluent-button>
+
+                    <div id="snackbar">Some text some message..</div>
+                </div>
+            </fluent-card>
+            <fluent-card class="base-fluent-card">
+                <div>
+                    <br>
+                    <fluent-text-field id="search" appearance="outline" placeholder="search contacts"
+                        style="width: 100%;" title="Enter firstname lastname, then press enter"
+                        onkeydown="cds.ClientHooks.AccountForm.loadRelatedContacts(event)"></fluent-text-field>
+                    <fluent-anchor id="searchhelp" style="font-size:10px;text-align:center;">Search help</fluent-anchor>
+                    <div id="allcontacts" class="contacts-div" ondrop="cds.ClientHooks.AccountForm.drop(event)"
+                        style="overflow-y:scroll;" ondragover="cds.ClientHooks.AccountForm.allowDrop(event)">
+                    </div>
+            </fluent-card>
+    </div>
+    </fluent-horizontal-scroll>
+    </div>
+</body>
+
+</html>
