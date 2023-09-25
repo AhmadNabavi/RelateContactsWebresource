@@ -9,3 +9,5 @@
 # src directory
 /src/dataverse-gen
 /src/Forms/__test__
+
+/src/Forms/ContactForm
